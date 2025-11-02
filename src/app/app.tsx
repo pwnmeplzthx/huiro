@@ -1,6 +1,7 @@
 import { ROUTES } from "@/shared/model/routes";
 import { AppHeader } from "@/widgets/header";
 import { Outlet, useLocation } from "react-router-dom";
+import { Providers } from "./providers";
 
 export function App() {
   const location = useLocation();
@@ -8,9 +9,11 @@ export function App() {
   const isAuthPage =
     location.pathname === ROUTES.LOGIN || location.pathname === ROUTES.REGISTER;
   return (
-    <div>
-      {!isAuthPage && <AppHeader />}
-      <Outlet />
-    </div>
+    <Providers>
+      <div>
+        {!isAuthPage && <AppHeader />}
+        <Outlet />
+      </div>
+    </Providers>
   );
 }
