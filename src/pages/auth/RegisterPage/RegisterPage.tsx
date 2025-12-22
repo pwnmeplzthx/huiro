@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import { RegisterForm } from "@/features/auth/RegisterForm";
 import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
-
-import { AuthLayout } from "../AuthLayout";
-
+import { AuthLayout } from "@/widgets/AuthLayout";
 
 export function RegisterPage() {
   return (

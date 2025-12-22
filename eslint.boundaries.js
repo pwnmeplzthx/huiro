@@ -90,6 +90,18 @@ export const eslintBoundariesConfig = {
           {
             target: ["entities", "features", "widgets", "pages"],
             allow: "index.(ts|tsx)",
+            message: "Разрешены только импорты через index файлы или алиасы (@/)",
+          },
+        ],
+      },
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: ["../*", "../../*", "../../../*", "../../../../*"],
+            message: "Запрещены относительные импорты между слоями FSD. Используй алиасы (@/)",
           },
         ],
       },
