@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
+import { LoginForm } from "@/features/auth/LoginForm";
 import { ROUTES } from "@/shared/model/routes";
 import { Button } from "@/shared/ui/kit/button";
-import { Link } from "react-router-dom";
+
 import { AuthLayout } from "../AuthLayout";
-import { LoginForm } from "@/features/auth/LoginForm";
+
 
 export function LoginPage() {
   return (

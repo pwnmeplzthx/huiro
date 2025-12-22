@@ -1,6 +1,8 @@
+import { Outlet, useLocation } from "react-router-dom";
+
 import { ROUTES } from "@/shared/model/routes";
 import { AppHeader } from "@/widgets/header";
-import { Outlet, useLocation } from "react-router-dom";
+
 import { Providers } from "./providers";
 
 export function App() {

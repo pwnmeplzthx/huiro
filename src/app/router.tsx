@@ -1,7 +1,9 @@
-import { ROUTES } from "../shared/model/routes";
 import { createBrowserRouter, redirect } from "react-router-dom";
-import { App } from "./app";
+
 import { lazyRoute } from "@/shared/lib/lazyRoute";
+
+import { App } from "./app";
+import { ROUTES } from "../shared/model/routes";
 
 export const router = createBrowserRouter([
   {

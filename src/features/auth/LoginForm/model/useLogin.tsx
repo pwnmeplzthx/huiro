@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 import { rqClient } from "@/shared/api/instance";
 import type { ApiSchemas } from "@/shared/api/schema";
 import { ROUTES } from "@/shared/model/routes";
-import { useNavigate } from "react-router-dom";
 
 export function useLogin() {
   const navigate = useNavigate();

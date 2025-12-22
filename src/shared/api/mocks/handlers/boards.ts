@@ -1,5 +1,8 @@
 import { HttpResponse } from "msw";
+
 import { http } from "../http";
+import { verifyTokenOrThrow } from "../session";
+
 import type { ApiSchemas } from "../../schema";
 
 const boards: ApiSchemas["Board"][] = [
@@ -14,10 +17,12 @@ const boards: ApiSchemas["Board"][] = [
 ];
 
 export const boardsHandlers = [
-  http.get("/boards", () => {
+  http.get("/boards", async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     return HttpResponse.json(boards);
   }),
   http.post('/boards', async (ctx) => {
+    await verifyTokenOrThrow(ctx.request);
     const data = ctx.request.json;
     const board = {
       id: crypto.randomUUID(),
@@ -27,7 +32,8 @@ export const boardsHandlers = [
     boards.push(board);
     return HttpResponse.json(board);
   }),
-  http.delete('/boards/{id}', ({params}) => {
+  http.delete('/boards/{id}', async ({params, request}) => {
+    await verifyTokenOrThrow(request);
     const {id} = params;
     const index = boards.findIndex(board => (board.id === id));
     if (index === -1) {

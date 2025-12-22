@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/kit/card";
+
 import type { ReactNode } from "react";
 
 interface AuthLayoutProps {
